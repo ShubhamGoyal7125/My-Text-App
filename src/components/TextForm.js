@@ -30,7 +30,7 @@ function TextForm(props) {
     props.showAlert("Successfully Cleared the text!", "success");
   }
 
-  let numberOfWords = text.split(" ").filter((t)=> t!== "").length;
+  let numberOfWords = text.split(/\s+/).filter((t)=> t!== "").length;
 
   return (
     <>
@@ -43,13 +43,14 @@ function TextForm(props) {
           value={text}
           onChange={handleChange}
           style={{
-            backgroundColor: props.mode === "light" ? "white" : "gray",
+            backgroundColor: props.mode === "light" ? "white" : "#272525",
             color: props.mode === "light" ? "black" : "white",
           }}
         ></textarea>
         <button 
-          className="btn btn-primary my-3" 
+          className="btn btn-primary my-3 mx-3" 
           onClick={handleUpperClick}
+          disabled={text.length===0}
           // style={{backgroundColor: props.mode === ('green' || 'blue') ? props.mode: '#0B5ED7'}}
         >
           Convert to Uppercase
@@ -57,6 +58,7 @@ function TextForm(props) {
         <button
           className="btn btn-primary my-3 mx-3"
           onClick={handleLowerClick}
+          disabled={text.length===0}
           // style={{backgroundColor: props.mode === ('green' || 'blue') ? props.mode: '#0B5ED7'}}
         >
           Convert to Lowercase
@@ -64,6 +66,7 @@ function TextForm(props) {
         <button
           className="btn btn-primary my-3 mx-3"
           onClick={handleCapitalizeClick}
+          disabled={text.length===0}
           // style={{backgroundColor: props.mode === ('green' || 'blue') ? props.mode: '#0B5ED7'}}
         >
           Convert to Capitalize
@@ -71,6 +74,7 @@ function TextForm(props) {
         <button
           className="btn btn-primary my-3 mx-3"
           onClick={handleClearClick}
+          disabled={text.length===0}
           // style={{backgroundColor: props.mode === ('green' || 'blue') ? props.mode: '#0B5ED7'}}
         >
           Clear Text

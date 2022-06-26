@@ -10,7 +10,7 @@ import "./App.css";
 import Navbar from './components/Navbar';
 import Alert from './components/Alert';
 import TextForm from './components/TextForm';
-// import About from './components/About';
+import About from './components/About';
 
 function App() {
 
@@ -47,7 +47,8 @@ function App() {
       <>
       <Navbar title="Text App" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
-      <TextForm showAlert={showAlert} title="Enter the Text to analyze" mode={mode} />
+      <TextForm showAlert={showAlert} title="My Text App - word counter | character counter | convert to uppercase or lowercase or capitalize " mode={mode} />
+      <About mode={mode}/>
       {/* <Routes>
         <Route exact path="/about" element={<About />} />
         <Route eaxct path="/" element={<TextForm showAlert={showAlert} title="Enter the Text to analyze" mode={mode} />} />
